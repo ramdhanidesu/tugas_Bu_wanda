@@ -43,7 +43,7 @@
 
                                 <div class="form-group">
                                     <label for="nama_petugas">Nama Petugas*</label>
-                                    <input class="form-control <?php echo form_error('password') ? 'is-invalid':'' ?>"
+                                    <input class="form-control <?php echo form_error('nama_petugas') ? 'is-invalid':'' ?>"
                                      type="text" name="nama_petugas" min="0" placeholder="Nama Petugas" />
                                     <div class="invalid-feedback">
                                         <?php echo form_error('nama_petugas') ?>
@@ -51,8 +51,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                <label for="name">Photo</label>
-                                <input class="form-control-file <?php echo form_error('price') ? 'is-invalid':'' ?>"
+                                <label for="image">Photo</label>
+                                <input class="form-control-file <?php echo form_error('image') ? 'is-invalid':'' ?>"
                                  type="file" name="image" />
                                 <div class="invalid-feedback">
                                     <?php echo form_error('image') ?>

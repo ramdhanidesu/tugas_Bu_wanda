@@ -34,13 +34,13 @@
                    
                         <div class="card mb-3">
                         <div class="card-header">
-                            <a href="<?php echo site_url('admin/siswa_view/') ?>"><i class="fas fa-arrow-left"></i> Kembali</a>
+                            <a href="<?php echo site_url('admin/siswa/') ?>"><i class="fas fa-arrow-left"></i> Kembali</a>
                         </div>
                         <div class="card-body">
                             <form action="<?php base_url('admin/siswa/add') ?>" method="post" enctype="multipart/form-data" >
                                 <div class="form-group">
                                     <label for="nisn">NISN*</label>
-                                    <input class="form-control <?php echo form_error('NISN') ? 'is-invalid':'' ?>"
+                                    <input class="form-control <?php echo form_error('nisn') ? 'is-invalid':'' ?>"
                                      type="number" name="nisn" placeholder="NISN" />
                                     <div class="invalid-feedback">
                                         <?php echo form_error('nisn') ?>
@@ -63,7 +63,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="kelas">Pilih Kelas*</label>
+                                    <label for="id_kelas">Pilih Kelas*</label>
                                     <select class="form-control" name="id_kelas" id="id_kelas">
                                         <option value="">Pilih Kelas</option>
                                         <?php foreach($id_kelas as $row):?>
@@ -73,7 +73,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="alamat">Alamat*</label>
-                                    <input class="form-control <?php echo form_error('nis') ? 'is-invalid':'' ?>"
+                                    <input class="form-control <?php echo form_error('alamat') ? 'is-invalid':'' ?>"
                                      type="text" name="alamat" min="0" placeholder="Alamat" />
                                     <div class="invalid-feedback">
                                         <?php echo form_error('alamat') ?>
@@ -81,14 +81,14 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="no_telp">No. Telpon*</label>
-                                    <input class="form-control <?php echo form_error('nis') ? 'is-invalid':'' ?>"
+                                    <input class="form-control <?php echo form_error('no_telp') ? 'is-invalid':'' ?>"
                                      type="number" name="no_telp" min="0" placeholder="No. Telpon" />
                                     <div class="invalid-feedback">
                                         <?php echo form_error('no_telp') ?>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="spp">Tahun SPP*</label>
+                                    <label for="id_spp">Tahun SPP*</label>
                                     <select class="form-control" name="id_spp" id="id_spp">
                                         <option value="">Tahun SPP</option>
                                         <?php foreach($id_spp as $row):?>
@@ -97,7 +97,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="name">Photo</label>
+                                    <label for="image">Photo</label>
                                     <input class="form-control-file <?php echo form_error('image') ? 'is-invalid':'' ?>"
                                      type="file" name="image" />
                                     <div class="invalid-feedback">

@@ -13,20 +13,20 @@ class Siswa extends CI_Controller
 
     public function index()
     {   
-        // if($this->session->userdata('akses')=='admin' || $this->session->userdata('akses')=='petugas'){
+        if($this->session->userdata('akses')=='admin' || $this->session->userdata('akses')=='petugas'){
             $data["siswa"] = $this->siswa_model->getAll();
             $this->load->view("admin/siswa_view/list", $data);
-        // }   
-        // else
-        // {
-        //     echo "Anda tidak berhak mengakses halaman ini";
-        // }
+        }   
+        else
+        {
+            echo "Anda tidak berhak mengakses halaman ini";
+        }
            
     }
 
     public function add()
     {   
-        // if($this->session->userdata('akses')=='admin' || $this->session->userdata('akses')=='petugas'){
+        if($this->session->userdata('akses')=='admin' || $this->session->userdata('akses')=='petugas'){
             $data['id_kelas'] = $this->kelas_model->getkelas()->result();
             $data['id_spp'] = $this->spp_model->getAll();
             $siswa = $this->siswa_model;
@@ -39,11 +39,11 @@ class Siswa extends CI_Controller
             }
 
             $this->load->view("admin/siswa_view/new_form",$data);
-        // }   
-        // else
-        // {
-        //     echo "Anda tidak berhak mengakses halaman ini";
-        // }
+        }   
+        else
+        {
+            echo "Anda tidak berhak mengakses halaman ini";
+        }
     }
 
     public function edit($nisn = null)

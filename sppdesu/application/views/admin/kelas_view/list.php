@@ -60,7 +60,7 @@
                                             <a href="<?php echo site_url('admin/kelas/edit/'.$kelas->id_kelas) ?>"
                                              class="btn btn-small"><i class="fas fa-edit"></i> Ubah</a>
                                             <a onclick="deleteConfirm('<?php echo site_url('admin/kelas/delete/'.$kelas->id_kelas) ?>')"
-                                             href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                             href="<?php echo site_url('admin/kelas/delete/'.$kelas->id_kelas) ?>" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
                                         </td>
                                     </tr>
                                     <?php endforeach; ?>

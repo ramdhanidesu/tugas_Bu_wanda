@@ -53,13 +53,13 @@
                                                 <?php echo $petugas->nama_petugas ?>
                                             </td>
                                             <td>
-                                                <img src="<?php echo base_url('upload/image/gambar.png.png') ?>" width="64" />
+                                                <img src="<?php echo base_url('upload/image/'.$petugas->image) ?>" width="64" />
                                             </td>
                                             <td width="250">
                                                 <a href="<?php echo site_url('admin/petugas/edit/'.$petugas->id_petugas) ?>"
                                                  class="btn btn-small"><i class="fas fa-edit"></i> Ubah</a>
                                                 <a onclick="deleteConfirm('<?php echo site_url('admin/petugas/delete/'.$petugas->id_petugas) ?>')"
-                                                 href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                                 href="<?php echo site_url('admin/petugas/delete/'.$petugas->id_petugas) ?>" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
                                             </td>
                                         </tr>
                                         <?php endforeach; ?>

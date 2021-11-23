@@ -83,7 +83,7 @@
                                             <a href="<?php echo site_url('admin/siswa/edit/'.$siswa->nisn) ?>"
                                              class="btn btn-small"><i class="fas fa-edit"></i> Ubah</a>
                                             <a onclick="deleteConfirm('<?php echo site_url('admin/siswa/delete/'.$siswa->nisn) ?>')"
-                                             href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+                                             href="<?php echo site_url('admin/siswa/delete/'.$siswa->nisn) ?>" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
                                         </td>
 
                                     </tr>

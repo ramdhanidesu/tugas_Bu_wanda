@@ -9,6 +9,7 @@ class Petugas_model extends CI_Model
     public $password;
     public $nama_petugas;
     public $level;
+    public $image;
 
     public function rules()
     {
@@ -50,6 +51,7 @@ class Petugas_model extends CI_Model
         $this->nama_petugas = $post["nama_petugas"];
         $this->level = $post["level"];
         $this->db->insert($this->_table, $this);
+        $this->image = $post["image"];
     }
 
     public function update()
@@ -60,6 +62,7 @@ class Petugas_model extends CI_Model
         $this->password = md5($post["password"]);
         $this->nama_petugas = $post["nama_petugas"];
         $this->level = $post["level"];
+        $this->image = $post["image"];
         $this->db->update($this->_table, $this, array('id_petugas' => $post['id']));
     }
 
