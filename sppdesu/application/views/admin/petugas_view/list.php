@@ -53,7 +53,7 @@
                                                 <?php echo $petugas->nama_petugas ?>
                                             </td>
                                             <td>
-                                                <img src="<?php echo base_url('upload/image/'.$petugas->image) ?>" width="64" />
+                                                <img src="<?php echo base_url('upload/'.$petugas->image) ?>" width="64" />
                                             </td>
                                             <td width="250">
                                                 <a href="<?php echo site_url('admin/petugas/edit/'.$petugas->id_petugas) ?>"

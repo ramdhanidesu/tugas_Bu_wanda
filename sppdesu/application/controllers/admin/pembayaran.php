@@ -14,36 +14,27 @@ class Pembayaran extends CI_Controller
 
     public function index()
     {   
-        // if($this->session->userdata('akses')=='admin' || $this->session->userdata('akses')=='petugas'){
+        if($this->session->userdata('akses')=='admin' || $this->session->userdata('akses')=='petugas'){
             $data["pembayaran"] = $this->pembayaran_model->getAll();
             $this->load->view("admin/pembayaran_view/list", $data);
-        // }   
-        // else
-        // {
-        //     echo "Anda tidak berhak mengakses halaman ini";
-        // }
+        }   
+        else
+        {
+            echo "Anda tidak berhak mengakses halaman ini";
+        }
            
     }
 
-    public function lihat_siswa()
-    {   
-        // if($this->session->userdata('akses')=='admin' || $this->session->userdata('akses')=='petugas'){
-            $data["pembayaran"] = $this->pembayaran_model->getSiswaBayar();
-            $this->load->view("admin/pembayaran_view/list", $data);
-        // }   
-        // else
-        // {
-        //     echo "Anda tidak berhak mengakses halaman ini";
-        // }
            
-    }
+    
 
     public function add()
     {   
-        // if($this->session->userdata('akses')=='admin' || $this->session->userdata('akses')=='petugas'){
+        if($this->session->userdata('akses')=='admin' || $this->session->userdata('akses')=='petugas'){
             
             $data['id_petugas'] = $this->petugas_model->getAll();
             $data['id_spp'] = $this->spp_model->getAll();
+            $data['nisn'] = $this->siswa_model->getSiswa();
             $pembayaran = $this->pembayaran_model;
             $validation = $this->form_validation;
             $validation->set_rules($pembayaran->rules());
@@ -54,17 +45,18 @@ class Pembayaran extends CI_Controller
             }
 
             $this->load->view("admin/pembayaran_view/new_form", $data);
-        // }   
-        // else
-        // {
-        //     echo "Anda tidak berhak mengakses halaman ini";
-        // }
+        }   
+        else
+        {
+            echo "Anda tidak berhak mengakses halaman ini";
+        }
     }
 
     public function edit($id = null)
     {
         $data['id_petugas'] = $this->petugas_model->getAll();
         $data['id_spp'] = $this->spp_model->getAll();
+        $data['nisn'] = $this->siswa_model->getSiswa();
 
         if (!isset($id)) redirect('admin/pembayaran');
        

@@ -40,6 +40,13 @@
                         <div class="card-body">
                             <form action="<?php base_url('admin/petugas/add') ?>" method="post" enctype="multipart/form-data" >
 
+                                <<input class="form-control <?php echo form_error('id_petugas') ? 'is-invalid':'' ?>"
+                                     type="hidden" name="id_petugas" placeholder="id petugas" />
+                                    <div class="invalid-feedback">
+                                        <?php echo form_error('id_petugas') ?>
+                                    </div>
+                                </div>
+
 
                                 <div class="form-group">
                                     <label for="nama_petugas">Nama Petugas*</label>
@@ -49,6 +56,8 @@
                                         <?php echo form_error('nama_petugas') ?>
                                     </div>
                                 </div>
+
+                                <input type="hidden" name="id_login" value="1">
 
                                 <div class="form-group">
                                 <label for="image">Photo</label>

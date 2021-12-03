@@ -5,29 +5,16 @@ class Petugas_model extends CI_Model
     private $_table = "petugas";
 
     public $id_petugas;
-    public $username;
-    public $password;
     public $nama_petugas;
-    public $level;
+    public $id_login;
     public $image;
 
     public function rules()
     {
         return [
-            ['field' => 'username',
-            'label' => 'Username',
-            'rules' => 'required'],
-
-            ['field' => 'password',
-            'label' => 'Password',
-            'rules' => 'required'],
 
             ['field' => 'nama_petugas',
             'label' => 'Nama Petugas',
-            'rules' => 'required'],
-
-            ['field' => 'level',
-            'label' => 'Level',
             'rules' => 'required'],
             
         ];
@@ -46,24 +33,41 @@ class Petugas_model extends CI_Model
     public function save()
     {
         $post = $this->input->post();
-        $this->username = $post["username"];
-        $this->password = md5($post["password"]);
+        $this->id_petugas = $post['id_petugas'];
         $this->nama_petugas = $post["nama_petugas"];
-        $this->level = $post["level"];
+        $this->id_login = $post["id_login"];
+        $this->image = $this->_uploadImage();
         $this->db->insert($this->_table, $this);
-        $this->image = $post["image"];
+        
     }
 
     public function update()
     {
         $post = $this->input->post();
-        $this->id_petugas = $post["id"];
-        $this->username = $post["username"];
-        $this->password = md5($post["password"]);
+        $this->id_petugas = $post['id_petugas'];
         $this->nama_petugas = $post["nama_petugas"];
-        $this->level = $post["level"];
-        $this->image = $post["image"];
+        $this->id_login = $post["id_login"];
+        $this->image = $this->_uploadImage();
         $this->db->update($this->_table, $this, array('id_petugas' => $post['id']));
+    }
+
+    private function _uploadImage()
+    {
+        $config['upload_path']          = './upload/';
+        $config['allowed_types']        = 'gif|jpg|png|jpeg';
+        $config['file_name']            = time().'_'.$_FILES['image']['name'];
+        $config['overwrite']            = true;
+        $config['max_size']             = 1024; // 1MB
+        // $config['max_width']            = 1024;
+        // $config['max_height']           = 768;
+
+        $this->load->library('upload', $config);
+		
+        if (!$this->upload->do_upload('image')) {
+            return $this->upload->data("file_name");
+        }
+        $return = $config['file_name'];
+        return $return;
     }
 
     public function delete($id)

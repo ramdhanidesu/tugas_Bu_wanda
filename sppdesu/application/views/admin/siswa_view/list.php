@@ -77,7 +77,7 @@
                                             <?php echo $siswa->tahun ?>
                                         </td>
                                         <td>
-                                            <img src="<?php echo base_url('upload/siswa/download.png') ?>" width="64" />
+                                            <img src="<?php echo base_url('upload/').$siswa->image ?>" width="64" />
                                         </td>
                                         <td width="250">
                                             <a href="<?php echo site_url('admin/siswa/edit/'.$siswa->nisn) ?>"

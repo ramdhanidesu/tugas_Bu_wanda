@@ -87,6 +87,9 @@
                                         <?php echo form_error('no_telp') ?>
                                     </div>
                                 </div>
+
+                                <input type="hidden" name="id_login" value="1"/>
+
                                 <div class="form-group">
                                     <label for="id_spp">Tahun SPP*</label>
                                     <select class="form-control" name="id_spp" id="id_spp">

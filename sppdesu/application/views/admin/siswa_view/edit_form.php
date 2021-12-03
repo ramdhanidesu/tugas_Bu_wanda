@@ -47,18 +47,9 @@
                             <input type="hidden" name="nisn" value="<?php echo $siswa->nisn?>" />
 
                             <div class="form-group">
-                                <label for="nisn">NISN*</label>
-                                <input class="form-control <?php echo form_error('nisn') ? 'is-invalid':'' ?>"
-                                 type="text" name="username" placeholder="NISN" value="<?php echo $siswa->nisn ?>" disabled />
-                                <div class="invalid-feedback">
-                                    <?php echo form_error('nisn') ?>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
                                 <label for="nis">NIS*</label>
                                 <input class="form-control <?php echo form_error('nis') ? 'is-invalid':'' ?>"
-                                 type="text" name="nis" min="0" placeholder="NIS" value="<?php echo $siswa->nis ?>" />
+                                 type="number" name="nis" min="0" placeholder="NIS" value="<?php echo $siswa->nis ?>" />
                                 <div class="invalid-feedback">
                                     <?php echo form_error('password') ?>
                                 </div>
@@ -67,7 +58,7 @@
                             <div class="form-group">
                                 <label for="nama">Nama Siswa*</label>
                                 <input class="form-control <?php echo form_error('nama') ? 'is-invalid':'' ?>"
-                                 name="nama" placeholder="Nama Siswa" value="<?php echo $siswa->nama ?>"/>
+                                 type="text" name="nama" placeholder="Nama Siswa" value="<?php echo $siswa->nama ?>"/>
                                 <div class="invalid-feedback">
                                     <?php echo form_error('nama') ?>
                                 </div>
@@ -87,7 +78,7 @@
                             <div class="form-group">
                                 <label for="alamat">Alamat*</label>
                                 <input class="form-control <?php echo form_error('alamat') ? 'is-invalid':'' ?>"
-                                 name="alamat" placeholder="Alamat" value="<?php echo $siswa->alamat ?>"/>
+                                 type="text" name="alamat" placeholder="Alamat" value="<?php echo $siswa->alamat ?>"/>
                                 <div class="invalid-feedback">
                                     <?php echo form_error('alamat') ?>
                                 </div>
@@ -96,11 +87,13 @@
                             <div class="form-group">
                                 <label for="no_telp">No. Telp*</label>
                                 <input class="form-control <?php echo form_error('no_telp') ? 'is-invalid':'' ?>"
-                                 name="no_telp" placeholder="No. Telp" value="<?php echo $siswa->no_telp ?>"/>
+                                type="number" name="no_telp" placeholder="No. Telp" value="<?php echo $siswa->no_telp ?>"/>
                                 <div class="invalid-feedback">
                                     <?php echo form_error('no_telp') ?>
                                 </div>
                             </div>
+
+                            <input type="hidden" name="id_login" value="1">
 
                             <div class="form-group">
                                     <label for="spp">Pilih Tahun SPP*</label>

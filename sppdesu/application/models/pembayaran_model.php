@@ -25,10 +25,6 @@ class Pembayaran_model extends CI_Model
             'label' => 'NISN',
             'rules' => 'required'],
 
-            ['field' => 'tgl_bayar',
-            'label' => 'Tanggal Bayar',
-            'rules' => 'date(format)'],
-
             ['field' => 'bulan_dibayar',
             'label' => 'Bulan Dibayar',
             'rules' => 'required'],
@@ -50,7 +46,7 @@ class Pembayaran_model extends CI_Model
     public function getAll()
     {
         //return $this->db->get($this->_table)->result();
-        $this->db->select('pembayaran.id_pembayaran,petugas.nama_petugas,pembayaran.nisn,pembayaran.tgl_bayar,pembayaran.bulan_dibayar, pembayaran.tahun_dibayar,spp.nominal,pembayaran.jumlah_bayar');
+        $this->db->select('pembayaran.id_pembayaran,petugas.id_petugas,petugas.nama_petugas,pembayaran.nisn,pembayaran.tgl_bayar,pembayaran.bulan_dibayar, pembayaran.tahun_dibayar,spp.nominal,pembayaran.jumlah_bayar');
         $this->db->from('pembayaran');
         $this->db->join('petugas','pembayaran.id_petugas=petugas.id_petugas');
         $this->db->join('spp','pembayaran.id_spp=spp.id_spp');
@@ -80,7 +76,7 @@ class Pembayaran_model extends CI_Model
     public function update()
     {
         $post = $this->input->post();
-        $this->id_pembayaran = $post["id"];
+        $this->id_pembayaran = $post["id_pembayaran"];
         $this->id_petugas = $post["id_petugas"];
         $this->nisn = $post["nisn"];
         $this->tgl_bayar = $post["tgl_bayar"];
@@ -88,7 +84,7 @@ class Pembayaran_model extends CI_Model
         $this->tahun_dibayar = $post["tahun_dibayar"];
         $this->id_spp = $post["id_spp"];
         $this->jumlah_bayar = $post["jumlah_bayar"];
-        $this->db->update($this->_table, $this, array('id_pembayaran' => $post['id']));
+        $this->db->update($this->_table, $this, array('id_pembayaran' => $post['id_pembayaran']));
     }
 
     public function delete($id)

@@ -48,12 +48,13 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="nisn">NISN*</label>
-                                    <input class="form-control <?php echo form_error('nisn') ? 'is-invalid':'' ?>"
-                                     type="number" name="nisn" placeholder="NISN" />
-                                    <div class="invalid-feedback">
-                                        <?php echo form_error('nisn') ?>
-                                    </div>
+                                    <label for="nisn">Pilih NISN*</label>
+                                    <select class="form-control" name="nisn" id="nisn">
+                                        <option value="">Pilih NISN...</option>
+                                        <?php foreach($nisn as $row):?>
+                                            <option value="<?php echo $row->nisn;?>"><?php echo $row->nisn;?></option>
+                                        <?php endforeach;?>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="tgl_bayar">Tanggal Bayar*</label>
@@ -65,7 +66,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="bulan_dibayar">Bulan Dibayar*</label>
-                                    <select class="form-control <?php echo form_error('bulan_dibayar') ? 'is-invalid':'' ?>" name="bulan_bayar" id="id_kk">
+                                    <select class="form-control <?php echo form_error('bulan_dibayar') ? 'is-invalid':'' ?>" name="bulan_dibayar" id="id_kk">
                                         <option value="">Bulan Dibayar</option>
                                             <option value="Januari">Januari</option>
                                             <option value="Februari">Februari</option>

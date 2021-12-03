@@ -44,16 +44,18 @@
                         <form action="<?php base_url(" admin/petugas/edit") ?>" method="post"
                             enctype="multipart/form-data" >
 
-                            <input type="hidden" name="id" value="<?php echo $petugas->id_petugas?>" />
+                            <input type="hidden" name="id_petugas" value="<?php echo $petugas->id_petugas?>" />
 
                             <div class="form-group">
                                 <label for="nama_petugas">Nama Petugas*</label>
-                                <input class="form-control <?php echo form_error('nama_petugas') ? 'is-invalid':'' ?>"
-                                 name="nama_petugas" placeholder="Nama Petugas" value="<?php echo $petugas->nama_petugas ?>"/>
+                                <input class="form-control <?php echo form_error('nama_petugas') ? 'is-invalid':'' ?>" 
+                                type="text" name="nama_petugas" placeholder="Nama Petugas" value="<?php echo $petugas->nama_petugas ?>"/>
                                 <div class="invalid-feedback">
                                     <?php echo form_error('nama_petugas') ?>
                                 </div>
                             </div>
+
+                            <input type="hidden" name="id_login" value="1">
 
                             <div class="form-group">
                                 <label for="name">Photo</label>
